@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        fraction: "0.6fr 1.4fr",
+        fraction: "0.8fr 1.2fr",
       },
       borderRadius: {
         message: "0px 10px 10px 10px",

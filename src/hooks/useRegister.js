@@ -27,7 +27,7 @@ const useRegister = () => {
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      dispatch(addUser(user));
+      user ? dispatch(addUser(user)): null
     });
     return () => {
       unSub();

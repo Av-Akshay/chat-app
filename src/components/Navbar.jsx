@@ -1,7 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { auth } from "../firebase/index";
+import { signOut } from "firebase/auth";
+import { deleteUser } from "../redux-toolkit/slice";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const data = useSelector((store) => store.auth.user);
   console.log(data);
   return (
@@ -14,11 +19,11 @@ const Navbar = () => {
           <figure>
             <img
               className="w-10 h-10 rounded-full"
-              src={data.photoURL}
+              src={data?.photoURL}
               alt="profile"
             />
           </figure>
-          <p>{data.displayName}</p>
+          <p>{data?.displayName}</p>
         </div>
         <button
           className="p-2 border border-black text-white w-fit rounded-xl"

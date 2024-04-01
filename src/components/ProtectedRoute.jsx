@@ -6,7 +6,7 @@ const ProtectedRoute = ({ Component }) => {
   const data = useSelector((store) => store.auth);
   console.log(data);
 
-  return data.status ? <Component /> : <Navigate to="/sighup" />;
+  return data.status ? <Component /> : <Navigate to="/login" />;
 };
 
 export default ProtectedRoute;

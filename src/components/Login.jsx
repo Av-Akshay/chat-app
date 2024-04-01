@@ -1,6 +1,7 @@
 import { Input, Button } from "./index";
 import React from "react";
 import useLogin from "../hooks/useLogin";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -68,6 +69,10 @@ const Login = () => {
             Submit
           </Button>
         </div>
+        <p className="text-lg font-medium">
+          Not a member ? 
+          <Link type="button" to="/sighup" className="text-blue-700 " > Signup Now </Link>
+        </p>
       </form>
     </div>
   );
