@@ -31,7 +31,7 @@ const useSearch = () => {
         setUser(doc.data());
       });
     } catch (error) {
-      setError(true);
+      setError(error.message);
       console.log(`handleSearch error ${error.message}`);
     }
   };
@@ -50,7 +50,7 @@ const useSearch = () => {
       const res = await getDoc(doc(db, "chats", combinedId));
 
       if (!res.exists()) {
-        await setDoc(doc, (db, "chats", combinedId), { messages: [] });
+        await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
         await updateDoc(doc(db, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {

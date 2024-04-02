@@ -27,7 +27,7 @@ const Search = () => {
           }}
         />
       </div>
-      {error && <span> User not found</span>}
+      {error && <span> {error} </span>}
       {user && (
         <div className="flex gap-2 items-center p-2" onClick={handleSelect}>
           <img

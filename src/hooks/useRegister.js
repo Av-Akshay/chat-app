@@ -27,6 +27,7 @@ const useRegister = () => {
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      console.log(user);
       user ? dispatch(addUser(user)): null
     });
     return () => {
@@ -41,6 +42,7 @@ const useRegister = () => {
         data.email,
         data.password
       );
+      console.log(response);
       const storageRef = ref(storage, data.userName);
       const uploadTask = uploadBytesResumable(storageRef, data.profile[0]);
       uploadTask.on(
@@ -66,8 +68,6 @@ const useRegister = () => {
           });
         }
       );
-      console.log(response);
-      dispatch(addUser());
     } catch (error) {
       console.log(error.message);
     }

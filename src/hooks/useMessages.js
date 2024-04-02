@@ -6,17 +6,17 @@ import { db } from '../firebase';
 const useMessages = () => {
     const [messages, setMessages] = useState([]);
 
-    const data = useSelector((store)=>store.auth.user)
+    const data = useSelector((store)=>store?.auth)
 
     useEffect(()=>{
-        const unSub = onSnapshot(doc(db,"chats", data.chatId), (doc)=>{
+        const unSub = onSnapshot(doc(db,"chats", data?.chatId), (doc)=>{
           doc.exists() && setMessages(doc.data().messages)
         });
 
         return ()=>{
           unSub();
         }
-    },[data.chatId])
+    },[data?.chatId])
 
   return {
     messages,

@@ -4,22 +4,22 @@ const authSlice = createSlice({
   name: "authorization",
   initialState: {
     status: false,
-    CurrentUser: null,
+    currentUser: null,
     chatId:"null",
     user:{}
   },
   reducers: {
     addUser: (state, action) => {
       state.status = true;
-      state.CurrentUser = action.payload;
+      state.currentUser = action.payload;
     },
     deleteUser: (state) => {
       state.status = false;
-      state.CurrentUser = null;
+      state.currentUser = null;
     },
     changeUser: (state,action)=>{
       state.user= action.payload,
-      state.chatId = state.CurrentUser.uid> action.payload.uid? state.CurrentUser.uid + action.payload.uid : action.payload.uid +  state.CurrentUser.uid
+      state.chatId = state.currentUser.uid> action.payload.uid? state.currentUser.uid + action.payload.uid : action.payload.uid +  state.currentUser.uid
 
     }
   },
