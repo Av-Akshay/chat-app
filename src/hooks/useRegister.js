@@ -27,8 +27,7 @@ const useRegister = () => {
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      console.log(user);
-      user ? dispatch(addUser(user)): null
+      user ? dispatch(addUser(user)) : null;
     });
     return () => {
       unSub();
@@ -42,16 +41,12 @@ const useRegister = () => {
         data.email,
         data.password
       );
-      console.log(response);
       const storageRef = ref(storage, data.userName);
       const uploadTask = uploadBytesResumable(storageRef, data.profile[0]);
       uploadTask.on(
-        (error) => {
-          console.log(error.message);
-        },
+        (error) => {},
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            console.log(downloadURL);
             await updateProfile(response.user, {
               displayName: data.userName,
               photoURL: downloadURL,
@@ -69,9 +64,9 @@ const useRegister = () => {
         }
       );
     } catch (error) {
-      console.log(error.message);
+      console.log(`error in useRegister Form !! ${error.message}`);
     }
-    console.log(data.profile[0]);
+
     reset();
   };
 

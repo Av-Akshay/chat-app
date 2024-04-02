@@ -7,8 +7,8 @@ import { useDispatch } from "react-redux";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const data = useSelector((store) => store.auth.user);
-  console.log(data);
+  const data = useSelector((store) => store.auth.currentUser);
+
   return (
     <div className="bg-violet-800 h-[16vh] flex items-center justify-between px-5">
       <div className="text-white text-sm">

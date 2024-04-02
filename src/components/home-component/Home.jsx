@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import useRegister from "../../hooks/useRegister";
 
-import { Chat, Navbar, Search, Messages } from "../index";
+import { Chat, Navbar, Search, Messages, InputText } from "../index";
 
 const Home = () => {
   const { currentUser } = useRegister();
@@ -13,9 +13,11 @@ const Home = () => {
       <div className="w-[70vw] h-[80vh] grid grid-cols-fraction grid-rows-1 rounded-3xl overflow-hidden">
         <div>
           <Navbar />
-          <div className="h-[70vh] bg-violet-400 overflow-y-scroll">
+          <div className="h-[70vh] bg-violet-400 overflow-y-scroll ">
             <Search />
-            <Chat />
+            <div className="flex flex-col justify-center gap-2 p-2">
+              <Chat />
+            </div>
           </div>
         </div>
         <div className="">
@@ -34,16 +36,7 @@ const Home = () => {
             </div>
           </div>
           <Messages />
-          <div className="bg-white flex items-center h-[10vh]">
-            <input
-              type="text"
-              placeholder="Write Text..."
-              className=" w-full border-none outline-none px-5 font-medium "
-            />
-            <button className="text-blue-500 font-bold text-lg px-8 py-5">
-              Send
-            </button>
-          </div>
+          <InputText />
         </div>
       </div>
     </div>

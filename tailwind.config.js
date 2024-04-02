@@ -8,6 +8,7 @@ export default {
       },
       borderRadius: {
         message: "0px 10px 10px 10px",
+        owner: "10px 0px 10px 10px ",
       },
     },
   },
