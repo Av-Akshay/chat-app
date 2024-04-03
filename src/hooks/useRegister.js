@@ -16,6 +16,7 @@ const useRegister = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
+  const [error, setError] = useState("");
 
   const {
     handleSubmit,
@@ -65,6 +66,7 @@ const useRegister = () => {
       );
     } catch (error) {
       console.log(`error in useRegister Form !! ${error.message}`);
+      setError(error.message)
     }
 
     reset();
@@ -85,6 +87,7 @@ const useRegister = () => {
     minSpecialCharPattern,
     submitForm,
     currentUser,
+    error
   };
 };
 

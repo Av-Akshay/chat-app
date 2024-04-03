@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Input } from "./index";
-import useRegister from "../hooks/useRegister";
+import { Button, Input } from "../index";
+import useRegister from "../../hooks/useRegister";
 
 const Signup = () => {
   const {
@@ -12,10 +12,12 @@ const Signup = () => {
     minSpecialCharPattern,
     minUppercasePattern,
     submitForm,
+    error
   } = useRegister();
 
   return (
-    <div className="bg-blue-500 h-screen flex items-center justify-center">
+    <div className="bg-blue-500 h-screen flex items-center justify-center flex-col">
+      <h1 className="text-red-500 font-medium text-xl text-center" ></h1>
       <form
         className="flex flex-col items-center gap-5 p-10 bg-[rgba(225,225,225,0.4)] rounded-xl "
         onSubmit={handleSubmit(submitForm)}

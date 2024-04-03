@@ -1,6 +1,6 @@
-import { Input, Button } from "./index";
+import { Input, Button } from "../index";
 import React from "react";
-import useLogin from "../hooks/useLogin";
+import useLogin from "../../hooks/useLogin";
 import { Link } from "react-router-dom";
 
 const Login = () => {

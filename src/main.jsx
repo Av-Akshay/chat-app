@@ -3,14 +3,14 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Signup from "./components/Signup.jsx";
-import Login from "./components/Login.jsx";
+
 import HomePage from "./pages/HomePage.jsx";
 import { persister, store } from "./redux-toolkit/store.js";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import { Home } from "./components/index.js";
+import LogIn from "./pages/LogIn.jsx";
+import SignUp from "./pages/SignUp.jsx";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -18,15 +18,15 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <ProtectedRoute Component={Home} />,
+        element: <ProtectedRoute Component={HomePage} />,
       },
       {
         path: "/sighup",
-        element: <Signup />,
+        element: <SignUp />,
       },
       {
         path: "/login",
-        element: <Login />,
+        element: <LogIn />,
       },
     ],
   },

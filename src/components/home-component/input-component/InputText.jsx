@@ -8,7 +8,7 @@ import {
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "../../firebase/index";
+import { db } from "../../../firebase/index";
 
 const InputText = () => {
   const [text, setText] = useState("");

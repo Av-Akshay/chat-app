@@ -1,5 +1,5 @@
 import React from "react";
-import useChat from "../hooks/useChat";
+import useChat from "../../hooks/useChat";
 
 const Chat = () => {
   const { chats, handleSelect } = useChat();
